@@ -1,4 +1,4 @@
-my_packages <- c("dplyr","ggplot2","rtweet","lubridate",'rvest')
+my_packages <- c("dplyr","ggplot2","rtweet","lubridate",'rvest','tidyr')
 install_if_missing <- function(p) {
   if(p %in% rownames(installed.packages())==FALSE){
     install.packages(p)}
