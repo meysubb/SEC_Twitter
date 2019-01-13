@@ -4,7 +4,7 @@ library(dplyr)
 library(rtweet)
 library(rvest)
 library(bigballR)
-source("twitter_auth.R")
+source("app/twitter_auth.R")
 
 
 create_token(
@@ -16,10 +16,10 @@ create_token(
 
 ## Load SEC teams + Hashtags 
 ## Check if file exists before running code to get teams. 
-if(!file.exists("sec_teams_list.RDS")){
-  source("get_sec_teams_list.R")
+if(!file.exists("app/sec_teams_list.RDS")){
+  source("app/get_sec_teams_list.R")
 }
-sec_teams <- readRDS("sec_teams_list.RDS")
+sec_teams <- readRDS("app/sec_teams_list.RDS")
 ## Date 
 today <- Sys.Date()
 
@@ -53,7 +53,7 @@ if (nrow(daily_sched_sec) == 0) {
 
 
 ## what do i do here when loading to heroku? 
-write.csv(daily_sched_sec,"daily_sched.csv",row.names = FALSE)
+write.csv(daily_sched_sec,"app/daily_sched.csv",row.names = FALSE)
 
 get_game_info <- function(game_id){
   base_url <- "http://www.espn.com/mens-college-basketball/game?gameId="
