@@ -14,9 +14,17 @@ create_token(
 ## Load Data
 sec_teams <- readRDS("sec_teams_list.RDS") %>% 
   mutate_all(as.character)
-daily_sched_sec <- read.csv("daily_sched.csv") %>% 
+daily_sched_sec <- read.csv("daily_sched.csv") 
+
+if(nrow(daily_sched_sec)==0){
+  quit()
+}
+
+daily_sched_sec <- daily_sched_sec
   mutate(home = as.character(home),
          away = as.character(away))
+
+
 
 for(i in 1:nrow(daily_sched_sec)){
   val <- daily_sched_sec$game_id[i]
