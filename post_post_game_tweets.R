@@ -1,6 +1,7 @@
 library(ncaahoopR)
 library(rtweet)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 source("twitter_auth.R")
 
 create_token(
@@ -11,8 +12,11 @@ create_token(
   access_secret = t_access_secret)
 
 ## Load Data
-sec_teams <- readRDS("sec_teams_list.RDS")
-daily_sched_sec <- read_csv("daily_sched.csv")
+sec_teams <- readRDS("sec_teams_list.RDS") %>% 
+  mutate_all(as.character)
+daily_sched_sec <- read.csv("daily_sched.csv") %>% 
+  mutate(home = as.character(home),
+         away = as.character(away))
 
 for(i in 1:nrow(daily_sched_sec)){
   val <- daily_sched_sec$game_id[i]

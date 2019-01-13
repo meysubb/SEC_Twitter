@@ -1,6 +1,6 @@
 library(ncaahoopR)
 library(lubridate)
-library(tidyverse)
+library(dplyr)
 library(rtweet)
 library(rvest)
 library(bigballR)
@@ -21,7 +21,7 @@ if(!file.exists("sec_teams_list.RDS")){
 }
 sec_teams <- readRDS("sec_teams_list.RDS")
 ## Date 
-today <- Sys.Date()-3
+today <- Sys.Date()
 
 daily_sched_sec <- get_master_schedule(year(today), month(today), day(today))
 
