@@ -20,7 +20,7 @@ if(nrow(daily_sched_sec)==0){
   quit()
 }
 
-daily_sched_sec <- daily_sched_sec
+daily_sched_sec <- daily_sched_sec %>% 
   mutate(home = as.character(home),
          away = as.character(away))
 
