@@ -53,7 +53,7 @@ for(i in 1:nrow(daily_sched_sec)){
   
   ## Get/Save WP Chart 
   ggsave(
-    'wp_chart_plot.png',
+    'app/wp_chart_plot.png',
     gg_wp_chart(val, home_color, away_color, show_labels = T),
     height = 8,
     width = 12
