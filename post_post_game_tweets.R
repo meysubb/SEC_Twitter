@@ -62,7 +62,3 @@ for(i in 1:nrow(daily_sched_sec)){
   tweet_text <- paste0("WP Plots for ",away_team," @ ",home_team,". ",home_hashtag," ",away_hashtag)
   post_tweet(status = tweet_text,media = 'app/wp_chart_plot.png') 
 }
-
-
-final_tweet <- "Look for some additional plots on tonights games, tomorrow morning! #SEC"
-post_tweet(status = final_tweet)
