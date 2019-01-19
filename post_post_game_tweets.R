@@ -14,7 +14,17 @@ create_token(
 ## Load Data
 sec_teams <- readRDS("app/sec_teams_list.RDS") %>% 
   mutate_all(as.character)
-daily_sched_sec <- read.csv("app/daily_sched.csv") 
+
+today <- Sys.Date()-1
+
+daily_sched_sec <- get_master_schedule(year(today), month(today), day(today))
+
+daily_sched_sec <-
+  daily_sched_sec %>% filter(home %in% sec_teams$sec_teams |
+                               away %in% sec_teams$sec_teams) %>% 
+  mutate(away = gsub("State","St.",away),
+         home = gsub("State","St.",home))
+
 
 if(nrow(daily_sched_sec)==0){
   quit()
