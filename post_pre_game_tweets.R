@@ -4,15 +4,14 @@ library(dplyr)
 library(rtweet)
 library(rvest)
 library(bigballR)
-source("app/twitter_auth.R")
 
 
 create_token(
-  app = t_app,
-  consumer_key = t_consumer_key,
-  consumer_secret = t_consumer_secret,
-  access_token = t_access_token,
-  access_secret = t_access_secret)
+  app = Sys.getenv('t_app'),
+  consumer_key = Sys.getenv('t_consumer_key'),
+  consumer_secret = Sys.getenv('t_consumer_secret'),
+  access_token = Sys.getenv('t_access_token'),
+  access_secret = Sys.getenv('t_access_secret'))
 
 ## Load SEC teams + Hashtags 
 ## Check if file exists before running code to get teams. 

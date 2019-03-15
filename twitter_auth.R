@@ -1,5 +1,0 @@
-t_app = 'SEC Charts'
-t_consumer_key = 'tVVXX9QKvdG06lTDE0kkKfphz'
-t_consumer_secret = 'rW48VGoanwOs1ldZ4PtQJlLTxM1gLIutGZgEuZ9eawCIPpcfMM'
-t_access_token = '1081930823522271232-50D60PvzqyHIQUDnFar6oAORqzm1fB'
-t_access_secret = 'OXstpXq4qKFylBak0SZ7Bb89R4W06gyezUtTMb6znQDgp'
